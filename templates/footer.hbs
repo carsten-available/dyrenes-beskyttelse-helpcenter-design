@@ -1,25 +1,49 @@
 <footer class="footer">
   <div class="footer-inner">
-    {{#link 'help_center'}}{{help_center.name}}{{/link}}
-
-    <div class="footer-language-selector">
-      {{#if alternative_locales}}
-        <div class="dropdown language-selector">
-          <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-            {{current_locale.name}}
-            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="dropdown-chevron-icon" aria-hidden="true">
-              <path fill="none" stroke="currentColor" stroke-linecap="round" d="M3 4.5l2.6 2.6c.2.2.5.2.7 0L9 4.5"/>
-            </svg>
-          </button>
-          <span class="dropdown-menu dropdown-menu-end" role="menu">
-            {{#each alternative_locales}}
-              <a href="{{url}}" dir="{{direction}}" rel="nofollow" role="menuitem">
-                {{name}}
-              </a>
-            {{/each}}
-          </span>
-        </div>
+    <div>
+      <div class="footer-logo">{{help_center.name}}</div>
+      <p class="footer-note">{{settings.footer_note}}</p>
+    </div>
+    <div class="footer-col">
+      {{#if categories}}
+        <h3>{{t 'categories'}}</h3>
+        <ul>
+          {{#each categories}}<li><a href="{{url}}">{{name}}</a></li>{{/each}}
+        </ul>
       {{/if}}
+    </div>
+    <div class="footer-col">
+      <h3>{{settings.footer_contact_title}}</h3>
+      <ul>
+        <li>{{link 'new_request'}}</li>
+        <li><a href="tel:{{settings.emergency_number}}">{{settings.emergency_cta}}</a></li>
+        <li><a href="{{settings.main_site_url}}">dyrenesbeskyttelse.dk</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>{{settings.footer_legal_title}}</h3>
+      <ul>
+        <li><a href="{{settings.accessibility_url}}">{{settings.accessibility_label}}</a></li>
+        <li><a href="{{settings.privacy_url}}">{{settings.privacy_label}}</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-inner">
+      <span>{{settings.footer_copyright}}</span>
+      <div class="footer-language-selector">
+        {{#if alternative_locales}}
+          <div class="dropdown language-selector">
+            <button class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+              {{current_locale.name}}
+              <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="dropdown-chevron-icon" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" d="M3 4.5l2.6 2.6c.2.2.5.2.7 0L9 4.5"/></svg>
+            </button>
+            <span class="dropdown-menu dropdown-menu-end" role="menu">
+              {{#each alternative_locales}}<a href="{{url}}" dir="{{direction}}" rel="nofollow" role="menuitem">{{name}}</a>{{/each}}
+            </span>
+          </div>
+        {{/if}}
+      </div>
     </div>
   </div>
 </footer>

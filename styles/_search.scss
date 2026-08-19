@@ -1,7 +1,6 @@
 /***** Search field *****/
 
-$icon-color: #777;
-$padding-left: 40px;
+$padding-left: 48px;
 $padding-right: 20px;
 
 .search-container {
@@ -9,41 +8,37 @@ $padding-right: 20px;
 }
 
 .search {
-  border-color: $high-contrast-border-color;
-  border-radius: 30px;
-  border-style: solid;
-  border-width: 1px;
+  border: 0;
+  border-radius: 0;
   display: flex;
   position: relative;
-  transition: $input-transition;
 
-  &:focus-within {
-    border-color: $brand_color;
-  }
-
-  input[type="search"], 
+  input[type="search"],
   .clear-button {
     background-color: #fff;
-    border-radius: 30px;
-    border: none;
-  }
-
-  &-full input[type="search"], 
-  &-full .clear-button {
-    border-color: #fff;
+    border-radius: 0;
   }
 
   input[type="search"] {
     appearance: none;
     -webkit-appearance: none;
+    border: 1.5px solid var(--db-ink);
     box-sizing: border-box;
-    color: $field-text-color;
+    color: var(--db-ink);
     flex: 1 1 auto;
-    height: 40px;
+    font-family: var(--db-text);
+    font-size: 17px;
+    height: 48px;
     width: 100%;
 
+    &::placeholder {
+      color: var(--db-meta);
+    }
+
     &:focus {
-      color: $field-text-focus-color;
+      color: var(--db-ink);
+      outline: 2px solid var(--db-coral);
+      outline-offset: 2px;
     }
 
     &::-webkit-search-decoration,
@@ -54,17 +49,23 @@ $padding-right: 20px;
     }
 
     &:-webkit-autofill,
-    &:-webkit-autofill:hover, 
+    &:-webkit-autofill:hover,
     &:-webkit-autofill:focus {
       -webkit-box-shadow: 0 0 0 1000px #fff inset;
     }
+  }
 
+  /* Hvid søgning på foto — bruges i hero */
+  &-full input[type="search"] {
+    border: 2px solid #fff;
+    height: 60px;
   }
 
   .clear-button {
     align-items: center;
+    border: 0;
     box-sizing: border-box;
-    color: $icon-color;
+    color: var(--db-meta);
     cursor: pointer;
     display: none;
     flex: none;
@@ -72,20 +73,13 @@ $padding-right: 20px;
     padding: 0 15px;
 
     &:hover {
-      background-color: $brand_color;
-      color: #fff;
+      color: var(--db-bordeaux);
     }
-
-    &:focus {
-      @include focus-ring;
-    }
-
   }
 
   &-has-value .clear-button {
     display: flex;
   }
-
 }
 
 [dir="ltr"] .search {
@@ -95,25 +89,7 @@ $padding-right: 20px;
   }
 
   &-has-value input[type="search"] {
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
     border-right-color: transparent;
-
-    &:focus {
-      border-right-color: $brand_color;
-    }
-
-  }
-
-  .clear-button {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    border-left-color: transparent;
-
-    &:focus {
-      border-left-color: $brand_color;
-    }
-    
   }
 }
 
@@ -124,40 +100,23 @@ $padding-right: 20px;
   }
 
   &-has-value input[type="search"] {
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
     border-left-color: transparent;
-
-    &:focus {
-      border-left-color: $brand_color;
-    }
-
-  }
-
-  .clear-button {
-    border-bottom-right-radius: 0;
-    border-top-right-radius: 0;
-    border-right-color: transparent;
-
-    &:focus {
-      border-right-color: $brand_color;
-    }
-
   }
 }
 
 .search-icon {
-  @include vertical-align;
-  position: absolute;
-  left: 15px;
-  z-index: 1;
-  width: 18px;
+  color: var(--db-meta);
   height: 18px;
-  color: $icon-color;
+  left: 18px;
   pointer-events: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  z-index: 2;
 
   [dir="rtl"] & {
     left: auto;
-    right: 15px;
+    right: 18px;
   }
 }

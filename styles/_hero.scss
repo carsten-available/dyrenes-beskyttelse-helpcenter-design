@@ -1,16 +1,132 @@
 /***** Hero component *****/
+/* Fotohero med mørk gradient. Maks. én rød storflade pr. skærmbillede. */
 .hero {
-  background-image: url($homepage_background_image);
+  background-color: var(--db-bordeaux);
   background-position: center;
   background-size: cover;
-  height: 300px;
-  padding: 0 20px;
-  text-align: center;
+  margin-bottom: 0;
+  padding: 0;
+  position: relative;
   width: 100%;
 
+  &::after {
+    background: linear-gradient(180deg, rgba(26, 0, 0, .25) 0%, rgba(26, 0, 0, .72) 100%);
+    content: "";
+    inset: 0;
+    pointer-events: none;
+    position: absolute;
+  }
+
   &-inner {
-    @include vertical-align;
-    max-width: 610px;
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
     margin: 0 auto;
+    max-width: var(--db-max);
+    padding: 104px var(--db-gut) 96px;
+    position: relative;
+    top: auto;
+    transform: none;
+    z-index: 1;
+
+    @include mobile {
+      padding: 64px var(--db-gut) 56px;
+    }
+  }
+
+  &-kicker {
+    color: var(--db-rose);
+    font-family: var(--db-mono);
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  &-title {
+    color: #fff;
+    font-family: var(--db-display);
+    font-size: 76px;
+    font-weight: 700;
+    line-height: .92;
+    margin: 0;
+    max-width: 18ch;
+    text-transform: uppercase;
+
+    @include mobile {
+      font-size: 44px;
+    }
+  }
+
+  &-lede {
+    color: #F2E7E4;
+    font-size: 20px;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 56ch;
+  }
+
+  &-search {
+    max-width: 680px;
+    position: relative;
+    width: 100%;
+  }
+
+  &-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    .button {
+      background-color: #fff;
+      border-color: #fff;
+      color: var(--db-bordeaux);
+
+      &:visited {
+        color: var(--db-bordeaux);
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--db-rose);
+        border-color: var(--db-rose);
+        color: var(--db-bordeaux);
+      }
+    }
+
+    .button-coral {
+      background-color: var(--db-coral);
+      border-color: var(--db-coral);
+      color: #fff;
+
+      &:visited {
+        color: #fff;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--db-coral-dark);
+        border-color: var(--db-coral-dark);
+        color: #fff;
+      }
+    }
+  }
+
+  &-photo-credit {
+    bottom: 12px;
+    color: rgba(255, 255, 255, .72);
+    font-family: var(--db-mono);
+    font-size: 10.5px;
+    letter-spacing: .06em;
+    position: absolute;
+    right: var(--db-gut);
+    z-index: 1;
+
+    [dir="rtl"] & {
+      left: var(--db-gut);
+      right: auto;
+    }
   }
 }

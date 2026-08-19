@@ -6,54 +6,100 @@
   }
 
   &-content {
-    @include desktop {
-      flex: 0 0 80%;
-    }
-
     flex: 1;
     max-width: 100%;
   }
 }
 
 .section-tree {
-  @include tablet { flex-direction: row; }
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  gap: 40px 48px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  @include mobile {
+    grid-template-columns: minmax(0, 1fr);
+  }
 
   .section {
-    @include tablet { flex: 0 0 45%; /* Two columns for tablet and desktop. Leaving 5% separation between columns */ }
-    flex: initial;
+    margin-bottom: 0;
     max-width: 100%;
   }
 
   &-title {
-    margin-bottom: 0;
-    font-size: 18px;
-    font-weight: $font-weight-semibold;
+    border-bottom: 1px solid var(--db-line);
+    font-size: 22px;
+    margin: 0 0 12px;
+    padding-bottom: 8px;
 
-    a { color: $text_color; }
-  }
+    a {
+      color: var(--db-ink);
 
-  .see-all-articles {
-    display: block;
-    padding: 15px 0;
+      &:visited {
+        color: var(--db-ink);
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: var(--db-bordeaux);
+      }
+    }
   }
 }
 
-.article-list {
-  &-item {
-    font-size: $font-size-bigger;
-    padding: 15px 0;
-    text-overflow: ellipsis;
-    overflow: hidden;
+.see-all-articles,
+.see-all-sections-trigger {
+  font-family: var(--db-display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
 
-    a { color: $text_color; }
+.see-all-articles {
+  display: inline-block;
+  padding: 8px 0;
+}
+
+.article-list {
+  list-style: none;
+  margin: 0 0 12px;
+  padding: 0;
+
+  &-item {
+    align-items: center;
+    border-bottom: 1px solid var(--db-line);
+    display: flex;
+    gap: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &-link {
+    color: var(--db-ink);
+    display: block;
+    flex: 1;
+    font-size: 17px;
+    padding: 14px 0;
+
+    &:visited {
+      color: var(--db-ink);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--db-bordeaux);
+    }
   }
 }
 
 .icon-star {
-  color: $brand_color;
-  font-size: 18px;
+  color: var(--db-coral);
+  flex: none;
+}
+
+.icon-lock {
+  color: var(--db-meta);
+  flex: none;
 }

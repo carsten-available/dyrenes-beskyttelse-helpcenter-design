@@ -1,44 +1,62 @@
 /***** Tables *****/
+table,
 .table {
-  @include tablet { table-layout: auto; }
-
-  width: 100%;
-  table-layout: fixed;
   border-collapse: collapse;
   border-spacing: 0;
+  font-size: 16px;
+  table-layout: auto;
+  width: 100%;
 
-  th,
-  th a {
-    color: $secondary-text-color;
-    font-size: $font-size-small;
-    text-align: left;
+  th {
+    border-bottom: 2px solid var(--db-ink);
+    color: var(--db-meta);
+    font-family: var(--db-mono);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .1em;
+    padding: 12px 16px 12px 0;
+    text-align: start;
+    text-transform: uppercase;
+    white-space: nowrap;
 
-    [dir="rtl"] & { text-align: right; }
-  }
-
-  tr {
-    @include tablet { display: table-row; }
-
-    border-bottom: 1px solid $low-contrast-border-color;
-    display: block;
-    padding: 20px 0;
+    a {
+      color: var(--db-meta);
+    }
   }
 
   td {
-    @include tablet {
-      display: table-cell;
-    }
-
-    display: block;
+    border-bottom: 1px solid var(--db-line);
+    padding: 16px 16px 16px 0;
+    vertical-align: top;
   }
 
-  td, th {
-    @include desktop {
-      padding: 20px 30px;
+  tbody tr:hover {
+    background-color: var(--db-tint);
+  }
+
+  /* Stakkede rækker på mobil */
+  @include mobile {
+    &,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
     }
-    @include tablet {
-      padding: 10px 20px;
-      height: 60px;
+
+    thead {
+      display: none;
+    }
+
+    td {
+      border: 0;
+      padding: 4px 0;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--db-line);
+      padding: 16px 0;
     }
   }
 }

@@ -1,0 +1,213 @@
+/***** Dyrenes Beskyttelse — komponenter uden modstykke i Copenhagen-temaet *****/
+
+/* Nødbånd. Vagtcentralen 1812 må aldrig ligge mere end ét klik væk,
+   så båndet ligger øverst på hver eneste side. */
+.db-utility {
+  background-color: var(--db-ink);
+  color: #fff;
+
+  &-inner {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    font-family: var(--db-mono);
+    font-size: 11.5px;
+    gap: 20px;
+    justify-content: space-between;
+    letter-spacing: .08em;
+    margin: 0 auto;
+    max-width: var(--db-max);
+    padding: 9px var(--db-gut);
+    text-transform: uppercase;
+  }
+
+  a {
+    color: #fff;
+
+    &:visited {
+      color: #fff;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--db-rose);
+    }
+  }
+
+  &-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}
+
+.db-emergency {
+  align-items: center;
+  display: inline-flex;
+  gap: 10px;
+
+  strong {
+    color: var(--db-coral);
+    font-family: var(--db-display);
+    font-size: 19px;
+    letter-spacing: .04em;
+  }
+}
+
+/* Rødt handlingsbånd. Maks. én rød storflade pr. skærmbillede —
+   hero, bånd eller sidefod, aldrig alle tre i samme viewport. */
+.db-band {
+  background-color: var(--db-bordeaux);
+  color: #fff;
+  margin: 0 0 64px;
+
+  &-inner {
+    align-items: center;
+    display: grid;
+    gap: 40px;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    margin: 0 auto;
+    max-width: var(--db-max);
+    padding: 56px var(--db-gut);
+
+    @media (max-width: #{$desktop-width}) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  h2 {
+    color: #fff;
+    font-size: 38px;
+    margin: 0 0 12px;
+  }
+
+  p {
+    color: var(--db-rose);
+    margin: 0;
+    max-width: 60ch;
+  }
+
+  &-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: flex-end;
+
+    @media (max-width: #{$desktop-width}) {
+      justify-content: flex-start;
+    }
+
+    .button {
+      background-color: #fff;
+      border-color: #fff;
+      color: var(--db-bordeaux);
+
+      &:visited {
+        color: var(--db-bordeaux);
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--db-rose);
+        border-color: var(--db-rose);
+        color: var(--db-bordeaux);
+      }
+    }
+
+    .button-ghost {
+      background-color: transparent;
+      border-color: #fff;
+      color: #fff;
+
+      &:visited {
+        color: #fff;
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: rgba(255, 255, 255, .14);
+        color: #fff;
+      }
+    }
+  }
+}
+
+/***** Profil *****/
+.profile-header {
+  align-items: center;
+  border-bottom: 2px solid var(--db-ink);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 32px;
+  padding-bottom: 28px;
+}
+
+.profile-avatar img {
+  border-radius: 50%;
+  height: 96px;
+  object-fit: cover;
+  width: 96px;
+}
+
+.profile-name {
+  font-family: var(--db-display);
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0 0 6px;
+  text-transform: uppercase;
+}
+
+.profile-stats {
+  background-color: var(--db-line);
+  border: 1px solid var(--db-line);
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  margin-bottom: 40px;
+}
+
+.profile-stat {
+  background-color: #fff;
+  padding: 22px 24px;
+
+  &-value {
+    color: var(--db-bordeaux);
+    font-family: var(--db-display);
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  &-label {
+    color: var(--db-meta);
+    font-family: var(--db-mono);
+    font-size: 11px;
+    letter-spacing: .08em;
+    margin-top: 6px;
+    text-transform: uppercase;
+  }
+}
+
+/***** Log ind *****/
+.sign-in-card {
+  background-color: #fff;
+  border: 1px solid var(--db-line);
+  margin: 56px auto;
+  max-width: 460px;
+  padding: 40px;
+}
+
+/* Faktaboks ved siden af formularer */
+.form-aside {
+  background-color: #fff;
+  border: 1px solid var(--db-line);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 24px;
+}

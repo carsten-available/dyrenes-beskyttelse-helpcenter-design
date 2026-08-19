@@ -13,7 +13,7 @@
           "type": "color",
           "description": "brand_color_description",
           "label": "brand_color_label",
-          "value": "#17494D"
+          "value": "#A00000"
         },
         {
           "identifier": "brand_text_color",
@@ -27,35 +27,35 @@
           "type": "color",
           "description": "text_color_description",
           "label": "text_color_label",
-          "value": "#2F3941"
+          "value": "#1A1A1A"
         },
         {
           "identifier": "link_color",
           "type": "color",
           "description": "link_color_description",
           "label": "link_color_label",
-          "value": "#1F73B7"
+          "value": "#A00000"
         },
         {
           "identifier": "hover_link_color",
           "type": "color",
           "description": "hover_link_color_description",
           "label": "hover_link_color_label",
-          "value": "#0F3554"
+          "value": "#7A0000"
         },
         {
           "identifier": "visited_link_color",
           "type": "color",
           "description": "visited_link_color_description",
           "label": "visited_link_color_label",
-          "value": "#9358B0"
+          "value": "#A00000"
         },
         {
           "identifier": "background_color",
           "type": "color",
           "description": "background_color_description",
           "label": "background_color_label",
-          "value": "#FFFFFF"
+          "value": "#FBFAF9"
         }
       ]
     },
@@ -133,7 +133,7 @@
               "value": "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"
             }
           ],
-          "value": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+          "value": "'Barlow Condensed', Impact, Haettenschweiler, sans-serif"
         },
         {
           "identifier": "text_font",
@@ -206,7 +206,7 @@
               "value": "'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif"
             }
           ],
-          "value": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
+          "value": "Barlow, Helvetica, Arial, sans-serif"
         }
       ]
     },
@@ -407,6 +407,158 @@
           "description": "show_suggested_articles_in_new_request_form_description",
           "label": "show_suggested_articles_label",
           "value": true
+        }
+      ]
+    },
+    {
+      "label": "Vagtcentral",
+      "variables": [
+        {
+          "identifier": "emergency_text",
+          "type": "text",
+          "label": "Tekst i nødbånd",
+          "value": "Dyr i nød? Ring vagtcentralen"
+        },
+        {
+          "identifier": "emergency_number",
+          "type": "text",
+          "label": "Nødnummer",
+          "value": "1812"
+        },
+        {
+          "identifier": "emergency_cta",
+          "type": "text",
+          "label": "Knaptekst til nødnummer",
+          "value": "Ring 1812"
+        }
+      ]
+    },
+    {
+      "label": "Forside",
+      "variables": [
+        {
+          "identifier": "hero_kicker",
+          "type": "text",
+          "label": "Hero: overlinje",
+          "value": "Hjælp og svar"
+        },
+        {
+          "identifier": "hero_title",
+          "type": "text",
+          "label": "Hero: overskrift",
+          "value": "Hvad kan vi hjælpe dig med?"
+        },
+        {
+          "identifier": "hero_lede",
+          "type": "text",
+          "label": "Hero: manchet",
+          "value": "Find svar om dyr i nød, adoption, medlemskab og vores arbejde."
+        },
+        {
+          "identifier": "hero_photo_credit",
+          "type": "text",
+          "label": "Hero: fotokredit",
+          "value": "Foto: Dyrenes Beskyttelse"
+        },
+        {
+          "identifier": "band_title",
+          "type": "text",
+          "label": "Handlingsbånd: overskrift",
+          "value": "Fandt du ikke svaret?"
+        },
+        {
+          "identifier": "band_text",
+          "type": "text",
+          "label": "Handlingsbånd: tekst",
+          "value": "Skriv til os, så vender vi tilbage inden for to hverdage."
+        }
+      ]
+    },
+    {
+      "label": "Links og sidefod",
+      "variables": [
+        {
+          "identifier": "main_site_url",
+          "type": "text",
+          "label": "Hovedsite",
+          "value": "https://www.dyrenesbeskyttelse.dk"
+        },
+        {
+          "identifier": "membership_url",
+          "type": "text",
+          "label": "Bliv medlem",
+          "value": "https://www.dyrenesbeskyttelse.dk/bliv-medlem"
+        },
+        {
+          "identifier": "donate_url",
+          "type": "text",
+          "label": "Støt",
+          "value": "https://www.dyrenesbeskyttelse.dk/stoet"
+        },
+        {
+          "identifier": "footer_note",
+          "type": "text",
+          "label": "Sidefod: brødtekst",
+          "value": "Danmarks største dyrevelfærdsorganisation siden 1875."
+        },
+        {
+          "identifier": "footer_contact_title",
+          "type": "text",
+          "label": "Sidefod: kontaktkolonne",
+          "value": "Kontakt"
+        },
+        {
+          "identifier": "footer_legal_title",
+          "type": "text",
+          "label": "Sidefod: kolonnetitel",
+          "value": "Om siden"
+        },
+        {
+          "identifier": "accessibility_label",
+          "type": "text",
+          "label": "Tilgængelighed: label",
+          "value": "Tilgængelighedserklæring"
+        },
+        {
+          "identifier": "accessibility_url",
+          "type": "text",
+          "label": "Tilgængelighed: link",
+          "value": "https://www.was.digst.dk"
+        },
+        {
+          "identifier": "privacy_label",
+          "type": "text",
+          "label": "Persondata: label",
+          "value": "Cookies og persondata"
+        },
+        {
+          "identifier": "privacy_url",
+          "type": "text",
+          "label": "Persondata: link",
+          "value": "https://www.dyrenesbeskyttelse.dk/persondata"
+        },
+        {
+          "identifier": "footer_copyright",
+          "type": "text",
+          "label": "Sidefod: copyright",
+          "value": "© 2026 Dyrenes Beskyttelse · CVR 11 88 91 12"
+        }
+      ]
+    },
+    {
+      "label": "AI",
+      "variables": [
+        {
+          "identifier": "show_ask_ai",
+          "type": "checkbox",
+          "label": "Vis Spørg AI-knap",
+          "value": true
+        },
+        {
+          "identifier": "ask_ai_label",
+          "type": "text",
+          "label": "Spørg AI: knaptekst",
+          "value": "Spørg AI"
         }
       ]
     }

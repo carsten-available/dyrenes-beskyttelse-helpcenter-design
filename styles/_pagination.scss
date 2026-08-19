@@ -1,57 +1,68 @@
 /***** Pagination *****/
 
 .pagination {
-  margin: 20px 0;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--db-mono);
+  font-size: 13px;
+  gap: 6px;
+  justify-content: center;
+  list-style: none;
+  margin: 32px 0;
+  padding: 0;
 
-  &-next, &-prev, &-first, &-last {
-    display: inline-block;
-    &-link {
-      @extend .button;
+  > a,
+  > span,
+  > li > a,
+  > li > span {
+    align-items: center;
+    border: 1px solid var(--db-line);
+    color: var(--db-ink-2);
+    display: inline-flex;
+    height: 44px;
+    justify-content: center;
+    min-width: 44px;
+    padding: 0 8px;
+
+    &:visited {
+      color: var(--db-ink-2);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--db-tint);
+      color: var(--db-bordeaux);
+      text-decoration: none;
     }
   }
 
-  &-first, &-last {
-    &-link {
-      padding: 0 10px;
-    }
+  > li {
+    display: inline-flex;
+  }
 
-    &-text {
-     @include visually-hidden;
+  /* Tekstlabels inde i links skal ikke have egen ramme */
+  a span,
+  a svg {
+    border: 0;
+    height: auto;
+    min-width: 0;
+    padding: 0;
+  }
+
+  .pagination-current,
+  [aria-current="page"] {
+    background-color: var(--db-bordeaux);
+    border-color: var(--db-bordeaux);
+    color: #fff;
+
+    &:visited {
+      color: #fff;
     }
   }
 
-  &-next {
-    &-link {
-      padding-right: 10px;
-    }
-    &-text {
-      margin-right: 10px;
-    }
-    [dir="rtl"] & {
-      &-link {
-        padding-left: 10px;
-      }
-      &-text {
-        margin-left: 10px;
-      }
-    }
-  }
-
-  &-prev {
-    &-link {
-      padding-left: 10px;
-    }
-    &-text {
-      margin-left: 10px;
-    }
-    [dir="rtl"] & {
-      &-link {
-        padding-right: 10px;
-      }
-      &-text {
-        margin-right: 10px;
-      }
-    }
+  &-first-text,
+  &-last-text {
+    @include visually-hidden;
   }
 }

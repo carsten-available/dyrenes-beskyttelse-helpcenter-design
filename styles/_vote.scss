@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+
   a {
     &:active,
     &:hover,
@@ -14,8 +15,10 @@
 }
 
 .vote-sum {
-  color: $secondary-text-color;
+  color: var(--db-meta);
   display: block;
+  font-family: var(--db-mono);
+  font-size: 12px;
   margin: 3px 0;
 
   [dir="rtl"] & {
@@ -28,30 +31,31 @@
   transform: scale(1, -1);
 }
 
-.vote-up:hover,
-.vote-down:hover {
-  color: $brand_color;
-}
-
-.vote-up, .vote-down {
+.vote-up,
+.vote-down {
+  align-items: center;
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
   background-color: transparent;
   border: none;
-  color: $secondary-text-color;
+  color: var(--db-ink-2);
   cursor: pointer;
-  min-height: 35px;
-  min-width: 35px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  min-height: 48px;
+  min-width: 48px;
+}
+
+.vote-up:hover,
+.vote-down:hover {
+  color: var(--db-bordeaux);
 }
 
 .vote-voted {
-  color: $brand_color;
+  color: var(--db-coral);
 }
 
 .vote-voted:hover {
-  color: $hover-button-color;
+  color: var(--db-coral-dark);
 }

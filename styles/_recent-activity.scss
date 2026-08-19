@@ -2,16 +2,24 @@
 
 .recent-activity {
   &-header {
-    margin-bottom: 10px;
-    text-align: center;
+    border-bottom: 2px solid var(--db-ink);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
   }
 
-  &-list { padding: 0; }
+  &-list {
+    border-top: 1px solid var(--db-line);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
 
   &-item {
-    border-bottom: 1px solid $low-contrast-border-color;
-    overflow: auto;
-    padding: 20px 0;
+    border-bottom: 1px solid var(--db-line);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 18px 0;
 
     h3 {
       margin: 0;
@@ -19,61 +27,47 @@
   }
 
   &-item-parent {
-    font-size: $font-size-bigger;
-    font-weight: 600;
-  }
-
-  &-item-parent,
-  &-item-link {
-    @include tablet {
-      width: 70%;
-      margin: 0;
-    }
-
-    margin: 6px 0;
-    display: inline-block;
-    width: 100%;
+    color: var(--db-bordeaux);
+    font-family: var(--db-mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
   }
 
   &-item-link {
-    font-size: 14px;
+    color: var(--db-ink);
+    font-size: 18px;
+    font-weight: 500;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    &:visited {
+      color: var(--db-ink);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--db-bordeaux);
+    }
   }
 
   &-item-meta {
-    color: $text_color;
-    @include tablet {
-      margin: 0;
-      float: right;
-
-      [dir="rtl"] & { float: left; }
-
-    }
-
-    margin: 15px 0 0 0;
-    float: none;
+    color: var(--db-meta);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
   }
 
   &-item-time,
   &-item-comment {
     display: inline-block;
-    font-size: $font-size-small;
-  }
-
-  &-item-comment {
-    padding-left: 5px;
-
-    [dir="rtl"] & { padding: 0 5px 0 0; }
-
-    &::before {
-      display: inline-block;
-    }
+    font-family: var(--db-mono);
+    font-size: 12px;
   }
 
   &-controls {
     padding-top: 15px;
-    @include standalone-link;
   }
 
   &-accessibility-label {
@@ -82,20 +76,15 @@
 
   &-comment-icon {
     svg {
-      vertical-align: middle;
-      color: $brand_color;
-      width: 16px;
+      color: var(--db-bordeaux);
       height: 16px;
+      vertical-align: middle;
+      width: 16px;
     }
 
     &:after {
       content: attr(data-comment-count);
-      margin-left: 3px;
-      
-      [dir="rtl"] & {
-        margin-left: 0;
-        margin-right: 3px;
-      }
+      margin-inline-start: 3px;
     }
   }
 }

@@ -1,0 +1,46 @@
+/***** Dyrenes Beskyttelse — designtokens *****/
+/* Designmanual: digital identitet v0.9 (august 2026).
+   Paletten er låst og eksponeres bevidst ikke som temaindstillinger.
+   Skrifterne indlæses i templates/document_head.hbs. */
+
+:root {
+  /* Farver */
+  --db-bordeaux: #A00000;
+  --db-bordeaux-dark: #7A0000;
+  --db-coral: #FF503C;
+  --db-coral-dark: #E63C28;
+  --db-ink: #1A1A1A;
+  --db-ink-2: #4A4A4A;
+  --db-meta: #767676;
+  --db-line: #E5E1DD;
+  --db-surface: #F4F2F0;
+  --db-sand: #FBFAF9;
+  --db-white: #FFFFFF;
+  --db-tint: #FFF3F1;
+  --db-rose: #FFC9C0;
+  --db-error: #C0392B;
+  --db-ok: #1A6B2F;
+
+  /* Skrifter */
+  --db-display: 'Barlow Condensed', Impact, Haettenschweiler, sans-serif;
+  --db-text: Barlow, Helvetica, Arial, sans-serif;
+  --db-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Mål */
+  --db-max: 1280px;
+  --db-gut: 24px;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --db-gut: 20px;
+  }
+}
+
+/* Manualen kræver at bevægelse kan slås fra */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

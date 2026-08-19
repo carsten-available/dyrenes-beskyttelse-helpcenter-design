@@ -1,4 +1,10 @@
 /***** Upload Dropzone *****/
 .upload-dropzone {
-  border: 1px solid $high-contrast-border-color;
+  background-color: var(--db-surface);
+  border: 1.5px dashed var(--db-line);
+  border-radius: 0;
+  color: var(--db-meta);
+  font-size: 15px;
+  padding: 24px;
+  text-align: center;
 }

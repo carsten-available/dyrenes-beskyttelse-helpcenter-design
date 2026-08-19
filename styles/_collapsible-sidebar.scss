@@ -1,13 +1,10 @@
-/* Sidebar navigation that collapses on mobile */
+/* Sidebar navigation.
+   Designet stakker sidebaren på mobil i stedet for at folde den sammen,
+   så sammenklapningen er slået fra og knappen skjult. */
 .collapsible-sidebar {
-  @include desktop {
-    max-height: none;
-    padding: 0;
-  }
   flex: 1;
-  max-height: 45px;
-  overflow: hidden;
-  padding: 10px 0;
+  max-height: none;
+  padding: 0;
   position: relative;
 
   &-title {
@@ -15,55 +12,59 @@
   }
 
   &-toggle {
-    @include desktop { display: none; }
-    position: absolute;
-    top: calc(45px / 2);
-    transform: translateY(-50%);
-    right: 0;
-    padding: 0;
-    border: 0;
-    background: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-
-    [dir="rtl"] & {
-      left: 0;
-      right: auto;
-    }
-
-    &-icon {
-      display: none;
-    }
-  
-    &[aria-expanded="false"] {
-      .chevron-icon {
-        display: inline-block;
-      }
-    }
-    
-    &[aria-expanded="true"] {
-      .x-icon {
-        display: inline-block;
-      }
-    }
-
-    &:focus {
-      outline: none;
-      border: 1px solid $brand_color;
-    }
-  }
-
-  &-body {
-    @include desktop { display: block; }
     display: none;
   }
 
-  &[aria-expanded="true"] {
-    max-height: none;
+  &-body {
+    display: block;
 
-    .collapsible-sidebar-body {
-      display: block;
+    ul {
+      border-top: 1px solid var(--db-line);
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
+  }
+}
+
+.sidenav-title {
+  color: var(--db-meta);
+  display: block;
+  font-family: var(--db-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.sidenav-item {
+  border-bottom: 1px solid var(--db-line);
+  border-inline-start: 3px solid transparent;
+  color: var(--db-ink-2);
+  display: block;
+  font-size: 16px;
+  overflow: hidden;
+  padding: 12px 14px;
+  text-overflow: ellipsis;
+
+  &:visited {
+    color: var(--db-ink-2);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: var(--db-surface);
+    color: var(--db-bordeaux);
+    text-decoration: none;
+  }
+
+  &.current-article,
+  &.current {
+    background-color: var(--db-tint);
+    border-inline-start-color: var(--db-bordeaux);
+    color: var(--db-bordeaux);
+    font-weight: 600;
   }
 }

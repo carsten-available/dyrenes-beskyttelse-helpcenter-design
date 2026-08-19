@@ -1,58 +1,41 @@
 /***** Article *****/
 .article {
-  /*
-  * The article grid is defined this way to optimize readability:
-  * Sidebar | Content | Free space
-  * 17%     | 66%     | 17%
-  */
-  @include desktop {
-    flex: 1 0 66%;
-    max-width: 66%;
-    min-width: 640px;
-    padding: 0 30px;
-  }
-
-  flex: 1 0 auto; //Explicit values needed whith flex-direction: column for IE11
+  min-width: 0;
 
   &-container {
-    @include desktop {
-      flex-direction: row;
-    }
+    align-items: start;
+    display: grid;
+    gap: 56px;
+    grid-template-columns: 280px minmax(0, 1fr);
+    padding-bottom: 64px;
 
-    display: flex;
-    flex-direction: column;
+    @media (max-width: #{$desktop-width}) {
+      gap: 32px;
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+
+  &-sidebar {
+    position: sticky;
+    top: 24px;
+
+    @media (max-width: #{$desktop-width}) {
+      position: static;
+    }
   }
 
   &-header {
-    @include tablet {
-      flex-direction: row;
-      margin-top: 0;
-    }
-
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 40px;
-    margin-top: 20px;
-  }
-
-  &-avatar {
-    margin-right: 10px;
-  }
-
-  &-author {
-    margin-bottom: 10px;
+    margin-bottom: 28px;
   }
 
   &-title {
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 46px;
+    line-height: .98;
+    margin: 0 0 20px;
     max-width: 100%;
 
-    @include tablet {
-      flex-basis: 100%; /* Take entire row */
+    @include mobile {
+      font-size: 32px;
     }
 
     .icon-lock {
@@ -62,134 +45,175 @@
     }
   }
 
-  [role="button"] {
-    @include tablet {
-      width: auto;
-    }
-    flex-shrink: 0; /*Avoid collapsing elements in Safari (https://github.com/philipwalton/flexbugs#1-minimum-content-sizing-of-flex-items-not-honored)*/
-    width: 100%;
+  &-author {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+  }
+
+  &-avatar img {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+  }
+
+  &-meta {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    gap: 2px;
   }
 
   &-info {
     max-width: 100%;
   }
 
-  &-meta {
-    display: inline-block;
-    vertical-align: middle;
-  }
-
   &-body {
     @include content-body;
+
+    color: var(--db-ink);
+    font-size: 18px;
+    line-height: 1.7;
+
+    h2 {
+      font-size: 28px;
+      margin: 40px 0 14px;
+    }
+
+    h3 {
+      font-size: 20px;
+      margin: 32px 0 10px;
+    }
+
+    ul,
+    ol {
+      padding-inline-start: 22px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    blockquote {
+      background-color: var(--db-surface);
+      border: 0;
+      border-inline-start: 4px solid var(--db-coral);
+      color: var(--db-ink);
+      font-size: 19px;
+      font-style: italic;
+      margin: 28px 0;
+      padding: 20px 24px;
+    }
+
+    a {
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
     > p:last-child {
       margin-bottom: 0;
     }
   }
 
   &-content {
-    line-height: 1.6;
     margin: 40px 0;
     word-wrap: break-word;
   }
 
   &-footer {
     align-items: center;
+    border-top: 1px solid var(--db-line);
     display: flex;
+    gap: 16px;
     justify-content: space-between;
-    padding-bottom: 20px;
+    margin-top: 40px;
+    padding: 24px 0;
   }
 
   &-comment-count {
-    color: $secondary-text-color;
+    color: var(--db-meta);
 
     &:hover {
       text-decoration: none;
     }
 
     &-icon {
-      vertical-align: middle;
-      color: $brand_color;
-      width: 18px;
+      color: var(--db-bordeaux);
       height: 18px;
+      vertical-align: middle;
+      width: 18px;
     }
-  }
-
-  &-sidebar {
-    @include desktop {
-      border: 0;
-      flex: 0 0 17%;
-      height: auto;
-      max-width: 17%;
-    }
-
-    border-bottom: 1px solid $low-contrast-border-color;
-    border-top: 1px solid $low-contrast-border-color;
-    flex: 1 0 auto; //Explicit values needed whith flex-direction: column for IE11
-    margin-bottom: 20px;
-    padding: 0;
   }
 
   &-relatives {
-    @include tablet {
-      flex-direction: row;
-    }
-
-    border-top: 1px solid $low-contrast-border-color;
-    display: flex;
-    flex-direction: column;
-    padding: 20px 0;
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-top: 48px;
 
     > * {
-      flex: 1 0 50%; //Explicit values needed whith flex-direction: column for IE11
-      min-width: 50%;
       overflow-wrap: break-word;
-      margin-right: 0;
-
-      &:last-child {
-        padding: 0;
-      }
-
-      @include tablet {
-        padding-right: 20px;
-      }
     }
   }
 
   &-votes {
-    border-top: 1px solid $low-contrast-border-color;
-    padding: 30px 0;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid var(--db-line);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 28px;
     text-align: center;
 
-    &-question { // Explicit values for rendering h2 like a span for accessibility.
-      font-size: $font-size-base;
-      font-weight: normal;
-      margin-bottom: 0;
+    &-question {
+      font-size: 22px;
+      margin: 0;
+    }
+
+    &-controls {
+      display: flex;
+      gap: 12px;
+    }
+
+    &-count {
+      color: var(--db-meta);
+      font-family: var(--db-mono);
+      font-size: 12px;
     }
   }
 
   &-vote {
-    margin: 10px 5px;
     min-width: 90px;
     width: auto;
   }
 
   &-more-questions {
-    margin: 10px 0 20px;
-    text-align: center;
-    @include standalone-link;
+    align-items: center;
+    background-color: var(--db-surface);
+    border: 1px solid var(--db-line);
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 17px;
+    gap: 16px;
+    justify-content: space-between;
+    margin-top: 32px;
+    padding: 24px;
   }
 
   &-return-to-top {
-    @include desktop {
-      display: none;
-    }
-
-    border-top: 1px solid $high-contrast-border-color;
+    margin-top: 24px;
+    text-align: end;
 
     a {
-      color: $text_color;
-      display: block;
-      padding: 20px 0;
+      align-items: center;
+      display: inline-flex;
+      font-family: var(--db-display);
+      font-size: 15px;
+      font-weight: 600;
+      gap: 6px;
+      letter-spacing: .06em;
+      text-transform: uppercase;
 
       &:hover,
       &:focus {
@@ -200,6 +224,11 @@
     &-icon {
       transform: rotate(0.5turn);
     }
+  }
+
+  &-share {
+    display: flex;
+    gap: 10px;
   }
 
   &-subscribe button {
@@ -220,19 +249,22 @@
   }
 }
 
-.sidenav {
-  &-title {
-    font-size: $font-size-base;
-    position: relative;
-    font-weight: 600;
-  }
+/* Fremhævet boks i artikler */
+.article-callout {
+  background-color: #fff;
+  border: 1px solid var(--db-line);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 28px 0;
+  padding: 22px 24px;
 
-  &-item {
-    display: block;
-    margin-top: 10px;
-    margin-bottom: 16px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  &-label {
+    color: var(--db-bordeaux);
+    font-family: var(--db-mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
   }
 }
 

@@ -2,90 +2,75 @@
 /* Used in Homepage#categories and Community#topics */
 .blocks {
   &-list {
-    @include tablet {
-      margin: 0 -15px;
-    }
-
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
+    background-color: var(--db-line);
+    border: 1px solid var(--db-line);
+    display: grid;
+    gap: 1px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     list-style: none;
+    margin: 0;
     padding: 0;
   }
 
   &-item {
-    @include tablet {
-      margin: 0 15px 30px;
-    }
-
-    border: 1px solid $brand_color;
-    border-radius: 4px;
-    box-sizing: border-box;
-    color: $brand_color;
+    background-color: #fff;
     display: flex;
-    flex: 1 0 340px;
-    margin: 0 0 30px;
-    max-width: 100%;
-    text-align: center;
-
-    &:hover,
-    &:focus,
-    &:active {
-      background-color: $brand_color;
-
-      * {
-        color: $brand_text_color;
-        text-decoration: none;
-      }
-    }
 
     &-internal {
-      background-color: transparent;
-      border: 1px solid $low-contrast-border-color;
-
       .icon-lock {
         height: 15px;
         width: 15px;
         bottom: 5px;
         position: relative;
       }
-
-      a { color: $text_color; }
     }
   }
 
   &-item-link {
-    color: $brand_color;
-    padding: 20px 30px;
+    border-inline-start: 4px solid transparent;
+    color: var(--db-ink);
     display: flex;
     flex-direction: column;
-    flex: 1;
-    justify-content: center;
-    border-radius: inherit;
+    gap: 10px;
+    padding: 32px 28px;
+    transition: background-color .12s ease-in-out, border-color .12s ease-in-out;
+    width: 100%;
 
-    &:visited,
-    &:hover,
-    &:active {
-      color: inherit;
-      text-decoration: none;
+    &:visited {
+      color: var(--db-ink);
     }
-    
-    &:focus {
-      @include focus-ring;
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: var(--db-tint);
+      border-inline-start-color: var(--db-coral);
       text-decoration: none;
     }
   }
 
   &-item-title {
+    color: var(--db-bordeaux);
+    font-family: var(--db-display);
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1.02;
     margin-bottom: 0;
-    font-size: 16px;
+    text-transform: uppercase;
   }
 
   &-item-description {
+    color: var(--db-ink-2);
+    font-size: 16px;
+    line-height: 1.5;
     margin: 0;
   }
 
-  &-item-description:not(:empty) {
-    margin-top: 10px;
+  &-item-count {
+    color: var(--db-meta);
+    font-family: var(--db-mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
   }
 }

@@ -1,32 +1,24 @@
 /***** Attachments *****/
 /* Styles attachments inside posts, articles and comments */
 .attachments {
-  .attachment-item {
-    padding-left: 20px;
-    position: relative;
-    margin-bottom: 10px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
-    &:last-child { margin-bottom: 0; }
+  .attachment-item {
+    align-items: center;
+    border-bottom: 1px solid var(--db-line);
+    display: flex;
+    gap: 10px;
+    padding: 12px 0;
 
     .attachment-icon {
-      color: $text_color;
-      left: 0;
-      position: absolute;
-      top: 5px;
-    }
-
-    [dir="rtl"] & {
-      padding-left: 0;
-      padding-right: 20px;
-
-      .attachment-icon {
-        left: auto;
-        right: 0;
-      }
+      color: var(--db-meta);
+      flex: none;
     }
   }
 }
 
 .upload-dropzone span {
-  color: $secondary-text-color;
+  color: var(--db-meta);
 }

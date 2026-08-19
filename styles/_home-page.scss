@@ -1,81 +1,98 @@
 /***** Homepage *****/
 
 .section {
-  @include tablet {
-    margin-bottom: 60px;
-  }
-
-  margin-bottom: 40px;
+  margin-bottom: 64px;
 }
 
-.home-section h2 {
-  margin-bottom: 10px;
-  text-align: center;
+.knowledge-base {
+  padding-top: 56px;
+}
+
+/* Overskriftsrække med streg — bruges på tværs af forsidens sektioner */
+.section-title-row {
+  align-items: baseline;
+  border-bottom: 2px solid var(--db-ink);
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+
+  h2 {
+    margin: 0;
+  }
+
+  a {
+    font-family: var(--db-display);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+}
+
+.knowledge-base .articles {
+  margin-top: 48px;
 }
 
 /***** Promoted articles *****/
 
 .promoted-articles {
-  @include desktop { flex-direction: row; }
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
+  background-color: var(--db-line);
+  border: 1px solid var(--db-line);
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
   &-item {
-    @include desktop {
-      align-self: flex-end;
-      flex: 0 0 auto;
-      padding-right: 30px;
-      width: 33%; /* Three columns on desktop */
-
-      [dir="rtl"] & { padding: 0 0 0 30px; }
-    }
-
-    flex: 1 0 auto;
-
-    &:nth-child(3n) {
-      padding-right: 0;
-    }
+    background-color: #fff;
 
     a {
-      display: block;
-      border-bottom: 1px solid $low-contrast-border-color;
-      padding: 15px 0;
+      align-items: flex-start;
+      color: var(--db-ink);
+      display: flex;
+      font-weight: 500;
+      gap: 12px;
+      min-height: 76px;
+      padding: 22px 24px;
+
+      &:visited {
+        color: var(--db-ink);
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--db-tint);
+        color: var(--db-bordeaux);
+        text-decoration: none;
+      }
     }
 
     .icon-lock {
-      vertical-align: baseline;
-    }
-
-    &:last-child a {
-      @include desktop {
-        border-bottom: 1px solid $low-contrast-border-color;
-      }
-
-      border: 0;
+      flex: none;
+      margin-top: 3px;
     }
   }
-
 }
 
 /***** Community section in homepage *****/
 .community {
-  text-align: center;
-
   &-image {
-    min-height: 300px;
-    margin-top: 32px;
     background-image: url($community_image);
     background-position: center;
     background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 32px;
     max-width: 100%;
+    min-height: 300px;
   }
-
-  @include standalone-link;
 }
 
 .community,
 .activity {
-  border-top: 1px solid $low-contrast-border-color;
-  padding: 30px 0;
+  padding: 0 0 30px;
 }

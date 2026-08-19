@@ -1,21 +1,23 @@
 /* Navigation element that collapses on mobile */
 .collapsible-nav {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--db-display);
+  font-size: 17px;
+  position: relative;
+
   @include tablet {
     flex-direction: row;
   }
-
-  flex-direction: column;
-  font-size: $font-size-navigation;
-  position: relative;
 }
 
 .collapsible-nav-border {
+  border-bottom: 1px solid var(--db-line);
+  border-top: 1px solid var(--db-line);
+
   @include tablet {
     border-top: 0;
   }
-
-  border-bottom: 1px solid $low-contrast-border-color;
-  border-top: 1px solid $low-contrast-border-color;
 }
 
 .collapsible-nav-toggle {
@@ -27,9 +29,10 @@
   padding: 0;
   border: 0;
   background: none;
+  color: var(--db-ink);
+  cursor: pointer;
   width: 25px;
   height: 25px;
-  border-radius: 50%;
 
   [dir="rtl"] & {
     left: 0;
@@ -45,87 +48,84 @@
       display: inline-block;
     }
   }
-  
+
   &[aria-expanded="true"] {
     .x-icon {
       display: inline-block;
     }
   }
-
-  &:focus {
-    outline: none;
-    border: 1px solid $brand_color;
-  }
 }
 
 .collapsible-nav-list {
-  @include tablet {
-    flex-direction: row;
-  }
-
   display: flex;
   flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  @include tablet {
+    flex-direction: row;
+    gap: 28px;
+  }
 
   li {
-    @include tablet {
-      line-height: normal;
-      margin-right: 30px;
-
-      [dir="rtl"] & {
-        margin-left: 30px;
-        margin-right: 0;
-      }
-
-      a {
-        text-decoration: none;
-        padding: 15px 0;
-      }
-    }
-
-    color: $text_color;
+    color: var(--db-ink-2);
     line-height: 45px;
     order: 1; // All elements have the same order
 
-    a {
-      color: $text_color;
-      display: block;
-    }
-  }
-
-  li:hover {
     @include tablet {
-      border-bottom: 4px solid #ddd;
+      line-height: normal;
+    }
 
-      a:not([aria-current="page"]) {
-        padding: 15px 0 11px 0;
+    a {
+      border-bottom: 4px solid transparent;
+      color: var(--db-ink-2);
+      display: block;
+      font-weight: 600;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+
+      &:visited {
+        color: var(--db-ink-2);
+      }
+
+      &:hover,
+      &:focus,
+      &:active {
+        color: var(--db-bordeaux);
         text-decoration: none;
+      }
+
+      @include tablet {
+        margin-bottom: -2px;
+        padding: 12px 0;
       }
     }
   }
 
   li:not([aria-selected="true"]),
   li:not(.current) {
-    @include tablet { display: block; }
     display: none;
-  }
 
-  li[aria-selected="true"] {
-    @include tablet {
-      padding: 15px 0 11px 0;
-    }
+    @include tablet { display: block; }
   }
 
   li[aria-selected="true"],
   li.current {
-    @include tablet {
-      border-bottom: 4px solid $brand_color;
-      order: 1;
-    }
-
     order: 0; //Move to top of menu
     position: relative;
 
-    a { color: $text_color; }
+    @include tablet {
+      order: 1;
+    }
+
+    a {
+      color: var(--db-bordeaux);
+
+      @include tablet {
+        border-bottom-color: var(--db-coral);
+      }
+    }
   }
 }
 

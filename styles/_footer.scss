@@ -1,28 +1,109 @@
 /***** Footer *****/
+/* Bordeauxrød sidefod i fire kolonner. Maks. én rød storflade pr. skærmbillede. */
 .footer {
-  border-top: 1px solid $low-contrast-border-color;
-  margin-top: 60px;
-  padding: 30px 0;
+  background-color: var(--db-bordeaux);
+  border-top: 0;
+  color: #fff;
+  margin-top: 80px;
+  padding: 0;
 
   a {
-    color: $secondary-text-color;
+    color: #fff;
+
+    &:visited {
+      color: #fff;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--db-rose);
+    }
   }
 
   &-inner {
-    @include max-width-container;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    gap: 40px;
+    grid-template-columns: minmax(0, 1.2fr) repeat(2, minmax(0, 1fr)) minmax(0, 1.1fr);
+    margin: 0 auto;
+    max-width: var(--db-max);
+    padding: 56px var(--db-gut) 40px;
+
+    @media (max-width: #{$desktop-width}) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include mobile {
+      gap: 32px;
+      grid-template-columns: minmax(0, 1fr);
+    }
   }
 
-  &-language-selector button {
-    color: $secondary-text-color;
-    display: inline-block;
+  &-logo {
+    font-family: var(--db-display);
+    font-size: 26px;
+    font-weight: 700;
+    line-height: .94;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  &-col {
+    h3 {
+      color: var(--db-rose);
+      font-family: var(--db-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      font-size: 16px;
+      gap: 10px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &-note {
+    color: var(--db-rose);
+    font-size: 14.5px;
+    line-height: 1.6;
+  }
+
+  &-bottom {
+    border-top: 1px solid rgba(255, 255, 255, .22);
+
+    &-inner {
+      color: var(--db-rose);
+      display: flex;
+      flex-wrap: wrap;
+      font-family: var(--db-mono);
+      font-size: 11px;
+      gap: 16px;
+      justify-content: space-between;
+      letter-spacing: .08em;
+      margin: 0 auto;
+      max-width: var(--db-max);
+      padding: 18px var(--db-gut);
+      text-transform: uppercase;
+    }
+  }
+
+  &-language-selector .dropdown-toggle {
+    color: #fff;
+    display: inline-flex;
   }
 }
 
 .powered-by-zendesk {
   a,
   a:visited {
-    color: $secondary-text-color;
+    color: var(--db-rose);
   }
 }

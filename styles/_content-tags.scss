@@ -1,12 +1,14 @@
 .content-tags {
+  margin: 32px 0;
+
   > p {
-    color: #68737D;
-    margin-top: 32px;
+    color: var(--db-meta);
     margin-bottom: 4px;
+    margin-top: 32px;
   }
 
   &-add-hint {
-    color: #68737D;
+    color: var(--db-meta);
     font-size: 14px;
   }
 }
@@ -14,23 +16,40 @@
 .content-tag-list {
   display: flex;
   flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
   word-break: break-word;
 
   li {
-    border-right: 1px solid #C2C8CC;
-    margin-bottom: 4px;
+    border: 0;
+    margin: 0;
+    padding: 0;
+  }
+}
 
-    [dir="ltr"] & {
-      padding-right: 8px;
-      margin-right: 8px;
-    }
-    [dir="rtl"] & {
-      padding-left: 8px;
-      margin-left: 8px;
-    }
+/* Chips er den eneste komponent med radius */
+.content-tag-item a,
+.content-tag {
+  align-items: center;
+  border: 1.5px solid var(--db-line);
+  border-radius: 999px;
+  color: var(--db-ink-2);
+  display: inline-flex;
+  font-size: 14px;
+  gap: 6px;
+  padding: 7px 14px;
 
-    &:last-child {
-      border: none;
-    }
+  &:visited {
+    color: var(--db-ink-2);
+  }
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: var(--db-bordeaux);
+    color: var(--db-bordeaux);
+    text-decoration: none;
   }
 }

@@ -1,29 +1,39 @@
 /***** Social share links *****/
 
-.share {
+.share,
+.article-share {
+  display: flex;
+  gap: 10px;
+  list-style: none;
+  margin: 0;
   padding: 0;
   white-space: nowrap;
 }
 
-.share li, .share a {
-  display: inline-block;
-}
-
-.share li {
-  height: 25px;
-  width: 25px;
-}
-
 .share a {
-  color: $secondary-text-color;
-  &:hover {
-    text-decoration: none;
-    color: $brand_color;
+  align-items: center;
+  border: 1.5px solid var(--db-line);
+  color: var(--db-ink-2);
+  display: inline-flex;
+  height: 40px;
+  justify-content: center;
+  width: 40px;
+
+  &:visited {
+    color: var(--db-ink-2);
   }
-  
-  & svg {
+
+  &:hover,
+  &:focus,
+  &:active {
+    border-color: var(--db-bordeaux);
+    color: var(--db-bordeaux);
+    text-decoration: none;
+  }
+
+  svg {
+    display: block;
     height: 18px;
     width: 18px;
-    display: block;  
   }
 }

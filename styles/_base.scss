@@ -1,15 +1,25 @@
 /***** Base *****/
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
-  background-color: $background_color;
-  color: $text_color;
-  font-family: $text_font;
-  font-size: $font-size-base;
-  line-height: 1.5;
+  background-color: var(--db-sand);
+  color: var(--db-ink);
+  font-family: var(--db-text);
+  font-size: 17px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+
+  @include mobile {
+    font-size: 16px;
+  }
 
   > main {
     @include desktop {
@@ -18,118 +28,162 @@ body {
   }
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: $heading_font;
-  margin-top: 0;
+  font-family: var(--db-display);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .005em;
+  margin: 0 0 16px;
+  text-wrap: balance;
 }
 
 h1 {
-  font-size: 32px;
+  font-size: 52px;
+  line-height: .96;
+
+  @include mobile {
+    font-size: 36px;
+  }
 }
 
 h2 {
-  font-size: 22px;
+  font-size: 32px;
+  line-height: 1.05;
 }
 
 h3 {
-  font-size: 18px;
-  font-weight: $font-weight-semibold;
+  font-size: 22px;
+  line-height: 1.1;
+  letter-spacing: .03em;
 }
 
 h4 {
-  font-size: 16px;
+  font-size: 18px;
+}
+
+p {
+  margin: 0 0 16px;
+  text-wrap: pretty;
+}
+
+ol {
+  margin: 0 0 16px;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--db-line);
+  margin: 32px 0;
 }
 
 a {
-  color: $link_color;
+  color: var(--db-bordeaux);
   text-decoration: none;
 
   &:visited {
-    color: $visited_link_color;
+    color: var(--db-bordeaux);
   }
 
   &:hover,
-  &:active,
-  &:focus {
+  &:active {
+    color: var(--db-coral-dark);
     text-decoration: underline;
   }
+}
+
+/* Fokusring: 2px sort med 2px offset, jf. designmanualen */
+:focus-visible {
+  outline: 2px solid var(--db-ink);
+  outline-offset: 2px;
 }
 
 .hbs-form, .search {
   input,
   textarea {
-    color: #000;
-    font-size: $input-font-size;
+    color: var(--db-ink);
+    font-size: 16px;
   }
-  
+
   input {
     max-width: 100%;
     box-sizing: border-box;
     transition: $input-transition;
-  
+
     /* We use the :where selector to not increase the specificity of the selector */
     &:where(:not([type="checkbox"])) {
       outline: none;
-  
+
       &:focus {
-        border: 1px solid $brand_color;
+        border-color: var(--db-coral);
       }
     }
   }
-  
+
   input[disabled] {
-    background-color: #ddd;
+    background-color: var(--db-line);
   }
-  
+
   select {
     -webkit-appearance: none;
     -moz-appearance: none;
-    background: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath fill='%23CCC' d='M0 0h10L5 6 0 0z'/%3E%3C/svg%3E%0A")
-      no-repeat #fff;
-    background-position: right 10px center;
-    border: 1px solid $high-contrast-border-color;
-    border-radius: 4px;
-    padding: 8px 30px 8px 10px;
+    appearance: none;
+    background-color: #fff;
+    background-image:
+      linear-gradient(45deg, transparent 50%, var(--db-ink) 50%),
+      linear-gradient(135deg, var(--db-ink) 50%, transparent 50%);
+    background-position: calc(100% - 20px) 21px, calc(100% - 14px) 21px;
+    background-size: 6px 6px;
+    background-repeat: no-repeat;
+    border: 1.5px solid var(--db-ink);
+    border-radius: 0;
+    padding: 12px 40px 12px 14px;
     outline: none;
-    color: $field-text-focus-color;
+    color: var(--db-ink);
     width: 100%;
-  
+
     &:focus {
-      border: 1px solid $brand_color;
+      border-color: var(--db-coral);
     }
-  
+
     &::-ms-expand {
       display: none;
     }
   }
-  
+
   textarea {
-    border: 1px solid $high-contrast-border-color;
-    border-radius: 2px;
+    border: 1.5px solid var(--db-ink);
+    border-radius: 0;
     resize: vertical;
     width: 100%;
     outline: none;
-    padding: 10px;
-  
+    padding: 12px 14px;
+
     &:focus {
-      border: 1px solid $brand_color;
+      border-color: var(--db-coral);
     }
   }
 }
 
-
 .container {
-  @include max-width-container;
+  max-width: var(--db-max);
+  margin: 0 auto;
+  padding: 0 var(--db-gut);
 }
 
 .container-divider {
-  border-top: 1px solid $low-contrast-border-color;
-  margin-bottom: 20px;
+  border-top: 1px solid var(--db-line);
+  margin-bottom: 32px;
 }
 
 ul {
@@ -138,8 +192,52 @@ ul {
   padding: 0;
 }
 
+.meta-data,
+.meta-group {
+  font-family: var(--db-mono);
+  font-size: 12px;
+  color: var(--db-meta);
+  letter-spacing: .02em;
+}
+
+.meta-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/***** Fejlside *****/
 .error-page {
-  @include max-width-container;
+  max-width: var(--db-max);
+  margin: 0 auto;
+  padding: 96px var(--db-gut) 120px;
+  text-align: center;
+
+  h1 {
+    font-size: 120px;
+    color: var(--db-coral);
+    line-height: .86;
+    margin-bottom: 16px;
+
+    @include mobile {
+      font-size: 80px;
+    }
+  }
+
+  h2 {
+    font-size: 34px;
+    margin-bottom: 12px;
+  }
+
+  p {
+    color: var(--db-ink-2);
+    max-width: 52ch;
+    margin: 0 auto 28px;
+  }
+
+  .button + .button {
+    margin-left: 12px;
+  }
 }
 
 .visibility-hidden {

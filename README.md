@@ -1,3 +1,88 @@
+# Dyrenes Beskyttelse — brandlag
+
+Dette repo er Zendesks Copenhagen-tema (v4.50.4) brandet efter Dyrenes Beskyttelses
+designmanual for digital identitet (v0.9, august 2026).
+
+## Hvad der er ændret
+
+| Område | Filer |
+|---|---|
+| Designtokens (farver, skrifter, mål) | `styles/_db-tokens.scss` |
+| Nye komponenter (nødbånd, handlingsbånd, profil, log ind-kort) | `styles/_db-components.scss` |
+| Resten af stilarket | de eksisterende partials i `styles/` |
+| Skriftindlæsning | `templates/document_head.hbs` |
+| Nødbånd, navigation, Spørg AI | `templates/header.hbs` |
+| Fotohero, kategoriblokke, handlingsbånd | `templates/home_page.hbs` |
+| Sidefod i fire kolonner | `templates/footer.hbs` |
+| 404-side | `templates/error_page.hbs` |
+| Nye indstillinger + palet som defaults | `manifest.json` |
+
+Alle øvrige templates er uændrede — de får deres udseende gennem stilarket, som følger
+Copenhagen-temaets egne klassenavne.
+
+## Designprincipper
+
+- **Ingen radius, ingen skygger.** Adskillelse sker med streg (`--db-line`) og flade.
+  Radius 999px bruges kun på chips (indholdstags).
+- **Maks. én rød storflade pr. skærm.** Hero, handlingsbånd eller sidefod — aldrig alle
+  tre i samme viewport.
+- **Koralrød er signalfarve.** Én primær handling samt fokus/hover. Aldrig brødtekst.
+- **Vagtcentralen 1812** ligger i det sorte nødbånd på hver eneste side, også i mobilmenuen.
+- **Tilgængelighed:** brødtekst 17px, touch-mål 48px, fokusring 2px `#1A1A1A` med 2px
+  offset, `prefers-reduced-motion` respekteret.
+
+## Designtokens
+
+Defineret som CSS-variabler i `styles/_db-tokens.scss`. Paletten er låst af designmanualen
+og eksponeres derfor ikke som farvevælgere i Theming Center. Temaets egne farve- og
+skriftindstillinger i `manifest.json` har fået samme værdier som defaults, så de dele af
+temaet der stadig læser `$brand_color` m.fl. følger paletten.
+
+| Token | Værdi | Brug |
+|---|---|---|
+| `--db-bordeaux` | `#A00000` | Primær. Navnetræk, sidefod, primærknap, links. |
+| `--db-bordeaux-dark` | `#7A0000` | Hover på primærknap. |
+| `--db-coral` | `#FF503C` | Signal. Én primær handling, fokus, aktiv-markering. |
+| `--db-coral-dark` | `#E63C28` | Hover på koral. |
+| `--db-ink` | `#1A1A1A` | Brødtekst. |
+| `--db-ink-2` | `#4A4A4A` | Sekundær tekst. |
+| `--db-meta` | `#767676` | Meta og labels. |
+| `--db-line` | `#E5E1DD` | Al adskillelse. |
+| `--db-surface` | `#F4F2F0` | Sektionsbund. |
+| `--db-sand` | `#FBFAF9` | Sidebund. |
+| `--db-tint` | `#FFF3F1` | Hover på kort og rækker. |
+| `--db-rose` | `#FFC9C0` | Tekst på bordeauxrød flade. |
+| `--db-error` | `#C0392B` | Fejl. |
+| `--db-ok` | `#1A6B2F` | OK. |
+
+Skrifter: **Barlow Condensed** 500/600/700 (display, versaler), **Barlow** 400/500/600
+(brødtekst), **IBM Plex Mono** 400/500 (meta, labels, tal). De er substitutter for de
+licenserede sitefonte og indlæses fra Google Fonts i `document_head.hbs` — de rigtige
+filnavne skal bekræftes af Dyrenes Beskyttelse, før de udskiftes.
+
+Spacing 4 · 8 · 16 · 24 · 32 · 48 · 72 · 96. Maks. bredde 1280px, margen 24px desktop /
+20px mobil. Breakpoints 480 · 768 · 1024 · 1280. Knapper: højde 48px, kondenseret
+semibold 17px, versaler, tracking 0,06em.
+
+## Udestående før publicering
+
+- `settings/logo.png` er stadig Copenhagen-temaets standardlogo. Skal udskiftes med
+  DB-navnetrækket, bordeauxrødt på transparent, min. 120px bredt.
+- `settings/homepage_background_image.jpg` er stadig Copenhagen-temaets tegnede
+  stock-illustration. Manualen tillader ikke illustration som erstatning for fotografi —
+  skal udskiftes med et dokumentarisk foto af et dyr i naturligt miljø, 1920×1080, med et
+  roligt område nederst til venstre hvor søgefeltet ligger. Rekvireres hos Dyrenes Beskyttelse.
+- To kontrastforhold i den låste palet lever ikke op til WCAG 2.1 AA for normal tekst og
+  bør afklares med designansvarlig:
+  - Hvid tekst på koralrød giver 3,25:1. Manualen tillader kun hvid på koral ved ≥24px,
+    men "Skriv til os" i headeren (16px) og koralknappen i heroen (17px) er mindre.
+    Bordeauxrød baggrund giver 8,42:1 og løser det uden at ændre paletten.
+  - `--db-meta` (`#767676`) på sidebund (`#FBFAF9`) giver 4,36:1. På hvid flade er den
+    4,54:1 og dermed i orden.
+- `yarn test-a11y -d` kræver en Zendesk-konto og er ikke kørt her.
+
+---
+
 # Copenhagen Theme by Zendesk
 
 The Copenhagen theme is the default Zendesk Guide theme. It is designed to be responsive and accessible.

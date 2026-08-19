@@ -6,11 +6,8 @@
   }
 
   &-content {
-    @include desktop {
-      flex: 0 0 80%;
-    }
     flex: 1;
-    max-width: 100%
+    max-width: 100%;
   }
 
   &-subscribe button {
@@ -22,31 +19,48 @@
 }
 
 .section-list {
-  margin: 40px 0;
+  border-top: 1px solid var(--db-line);
+  list-style: none;
+  margin: 0 0 32px;
+  padding: 0;
 }
 
 .section-list-item {
-  border-bottom: 1px solid $low-contrast-border-color;
-  font-size: $font-size-bigger;
-  padding: 15px 0;
-
-  &:first-child {
-    border-top: 1px solid $low-contrast-border-color;
-  }
-
   a {
     align-items: center;
-    color: $text_color;
+    border-bottom: 1px solid var(--db-line);
+    color: var(--db-ink);
     display: flex;
+    font-family: var(--db-display);
+    font-size: 20px;
+    font-weight: 600;
+    gap: 16px;
     justify-content: space-between;
+    letter-spacing: .03em;
+    padding: 18px 0;
+    text-transform: uppercase;
+
+    &:visited {
+      color: var(--db-ink);
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: var(--db-bordeaux);
+      text-decoration: none;
+    }
   }
 }
 
 .see-all-sections-trigger {
+  background: none;
+  border: 0;
   cursor: pointer;
   display: block;
   padding: 15px;
   text-align: center;
+  width: 100%;
 
   &[aria-hidden="true"] {
     display: none;
