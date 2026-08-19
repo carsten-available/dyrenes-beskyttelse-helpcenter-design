@@ -1369,6 +1369,9 @@ input[aria-invalid=true] {
   margin-bottom: 14px;
   text-transform: uppercase;
 }
+.footer-col {
+  /* link-helperen udelader fx fællesskabet, når det er slået fra */
+}
 .footer-col h3 {
   color: var(--db-rose);
   font-family: var(--db-mono);
@@ -1386,6 +1389,9 @@ input[aria-invalid=true] {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+.footer-col li:empty {
+  display: none;
 }
 .footer-note {
   color: var(--db-rose);

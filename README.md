@@ -65,6 +65,13 @@ resultatet sammen med ændringer i `styles/` eller `src/`.
 - **Tilgængelighed:** brødtekst 17px, touch-mål 48px, fokusring 2px `#1A1A1A` med 2px
   offset, `prefers-reduced-motion` respekteret.
 
+### Sidefodens anden kolonne
+
+Designet lagde op til en kolonne med kategorier i sidefoden, men `categories` findes ikke i
+footerens Curlybars-kontekst — Zendesk afviser temaet ved import med `'categories' does not
+exist`. Kolonnen er derfor genveje bygget med `link`-helperen, som virker i alle templates,
+og overskriften styres af indstillingen `footer_links_title`.
+
 ## Designtokens
 
 Defineret som CSS-variabler i `styles/_db-tokens.scss`. Paletten er låst af designmanualen

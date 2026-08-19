@@ -530,6 +530,20 @@
           "value": "Danmarks største dyrevelfærdsorganisation siden 1875."
         },
         {
+          "identifier": "footer_links_title",
+          "type": "text",
+          "description": "Overskrift på genvejskolonnen i sidefoden",
+          "label": "Sidefod: genvejskolonne",
+          "value": "Genveje"
+        },
+        {
+          "identifier": "footer_home_label",
+          "type": "text",
+          "description": "Linkteksten til hjælpecenterets forside i sidefoden",
+          "label": "Sidefod: link til forsiden",
+          "value": "Hjælp og svar"
+        },
+        {
           "identifier": "footer_contact_title",
           "type": "text",
           "description": "Overskrift på kontaktkolonnen i sidefoden",

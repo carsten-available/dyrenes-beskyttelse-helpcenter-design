@@ -68,6 +68,11 @@
       margin: 0;
       padding: 0;
     }
+
+    /* link-helperen udelader fx fællesskabet, når det er slået fra */
+    li:empty {
+      display: none;
+    }
   }
 
   &-note {

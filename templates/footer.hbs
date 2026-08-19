@@ -4,13 +4,15 @@
       <div class="footer-logo">{{help_center.name}}</div>
       <p class="footer-note">{{settings.footer_note}}</p>
     </div>
+    {{!-- Kategorier kan ikke listes her: 'categories' findes ikke i footerens kontekst.
+          Derfor genveje via link-helperen, som virker i alle templates. --}}
     <div class="footer-col">
-      {{#if categories}}
-        <h3>{{t 'categories'}}</h3>
-        <ul>
-          {{#each categories}}<li><a href="{{url}}">{{name}}</a></li>{{/each}}
-        </ul>
-      {{/if}}
+      <h3>{{settings.footer_links_title}}</h3>
+      <ul>
+        <li>{{#link 'help_center'}}{{settings.footer_home_label}}{{/link}}</li>
+        <li>{{link 'community'}}</li>
+        <li>{{link 'requests'}}</li>
+      </ul>
     </div>
     <div class="footer-col">
       <h3>{{settings.footer_contact_title}}</h3>
