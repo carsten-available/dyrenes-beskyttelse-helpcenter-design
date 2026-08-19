@@ -68,10 +68,25 @@ semibold 17px, versaler, tracking 0,06em.
 
 - `settings/logo.png` er stadig Copenhagen-temaets standardlogo. Skal udskiftes med
   DB-navnetrækket, bordeauxrødt på transparent, min. 120px bredt.
-- `settings/homepage_background_image.jpg` er stadig Copenhagen-temaets tegnede
-  stock-illustration. Manualen tillader ikke illustration som erstatning for fotografi —
-  skal udskiftes med et dokumentarisk foto af et dyr i naturligt miljø, 1920×1080, med et
-  roligt område nederst til venstre hvor søgefeltet ligger. Rekvireres hos Dyrenes Beskyttelse.
+- `settings/homepage_background_image.jpg` er et **midlertidigt** foto, ikke et DB-asset.
+  Copenhagen-temaets tegnede stock-illustration er udskiftet, fordi manualen ikke tillader
+  illustration som erstatning for fotografi. Det nuværende billede er et dokumentarisk foto
+  af et europæisk pindsvin i skovbund, beskåret til 1920×1080 med et roligt område nederst
+  til venstre hvor søgefeltet ligger:
+
+  | | |
+  |---|---|
+  | Motiv | Europæisk pindsvin (*Erinaceus europaeus*), Emmerdennen, Emmen, NL, 2009 |
+  | Fotograf | Hrald |
+  | Licens | CC BY-SA 3.0 (beskæringen er et bearbejdet værk og deler samme licens) |
+  | Kilde | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:West_European_Hedgehog_(Erinaceus_europaeus)1.jpg) |
+
+  Krediteringen står i temaindstillingen `hero_photo_credit` og vises nederst til højre i
+  heroen. **Skift til et DB-foto før publicering** — så kan krediteringen enten fjernes
+  eller sættes til fotografens navn. Kravene til erstatningen: dokumentarisk foto af et
+  rigtigt dyr i naturligt miljø, 1920×1080, roligt område nederst til venstre.
+  Bemærk at hero-feltet beskærer billedet (`background-size: cover`), så motivet skal
+  kunne tåle et snit på både 3:1 (bred desktop) og portræt (mobil).
 - To kontrastforhold i den låste palet lever ikke op til WCAG 2.1 AA for normal tekst og
   bør afklares med designansvarlig:
   - Hvid tekst på koralrød giver 3,25:1. Manualen tillader kun hvid på koral ved ≥24px,
