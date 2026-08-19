@@ -45,6 +45,11 @@ required schemas`. Desuden: `identifier` højst 30 tegn (kun bogstaver, tal og `
 `label` højst 40 tegn, `description` højst 80 tegn, og `value` er påkrævet for alle typer
 undtagen `file`. Gyldige typer er `text`, `list`, `checkbox`, `color`, `file` og `range`.
 
+For `list` skal `value` være en af værdierne i `options` — ellers afvises temaet med
+`Denne værdi opfylder ikke kravene for indstillingen <navn> til typen list`. Skiftes
+skrifttypen, skal den både stå som `value` og findes i `options` (se `heading_font` og
+`text_font`, hvor Barlow-stakkene er tilføjet som valgmuligheder).
+
 Byggede filer (`style.css`, `script.js`, `assets/*-bundle.js`) er committet med vilje:
 Zendesk kører ingen build ved import, så de skal ligge i repoet. Kør `yarn build` og commit
 resultatet sammen med ændringer i `styles/` eller `src/`.
