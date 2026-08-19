@@ -86,7 +86,10 @@ semibold 17px, versaler, tracking 0,06em.
   eller sættes til fotografens navn. Kravene til erstatningen: dokumentarisk foto af et
   rigtigt dyr i naturligt miljø, 1920×1080, roligt område nederst til venstre.
   Bemærk at hero-feltet beskærer billedet (`background-size: cover`), så motivet skal
-  kunne tåle et snit på både 3:1 (bred desktop) og portræt (mobil).
+  kunne tåle et snit på både 3:1 (bred desktop) og portræt (mobil). På mobil er udsnittet
+  så smalt, at motivet falder ud af billedet med `center` — derfor styres det vandrette
+  fokuspunkt under 768px af indstillingen `hero_mobile_focus` (default `70%`, tilpasset
+  det nuværende foto). **Justér den, når fotoet skiftes ud.**
 - To kontrastforhold i den låste palet lever ikke op til WCAG 2.1 AA for normal tekst og
   bør afklares med designansvarlig:
   - Hvid tekst på koralrød giver 3,25:1. Manualen tillader kun hvid på koral ved ≥24px,

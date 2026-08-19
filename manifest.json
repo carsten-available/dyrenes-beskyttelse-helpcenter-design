@@ -461,6 +461,13 @@
           "value": "Foto: Hrald / Wikimedia Commons (CC BY-SA 3.0)"
         },
         {
+          "identifier": "hero_mobile_focus",
+          "type": "text",
+          "label": "Hero: billedfokus på mobil",
+          "description": "Vandret fokuspunkt for hero-fotoet på skærme under 768px, fx 70%. Justér når fotoet skiftes ud.",
+          "value": "70%"
+        },
+        {
           "identifier": "band_title",
           "type": "text",
           "label": "Handlingsbånd: overskrift",

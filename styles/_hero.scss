@@ -4,6 +4,13 @@
   background-color: var(--db-bordeaux);
   background-position: center;
   background-size: cover;
+
+  /* Heroen beskærer fotoet (cover). På mobil er udsnittet så smalt, at motivet
+     falder uden for billedet med "center", så fokuspunktet kan flyttes fra
+     Theming Center — det skal justeres, når fotoet skiftes ud. */
+  @include mobile {
+    background-position: $hero_mobile_focus center;
+  }
   margin-bottom: 0;
   padding: 0;
   position: relative;
