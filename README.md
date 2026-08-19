@@ -20,6 +20,26 @@ designmanual for digital identitet (v0.9, august 2026).
 Alle øvrige templates er uændrede — de får deres udseende gennem stilarket, som følger
 Copenhagen-temaets egne klassenavne.
 
+## Temaets identitet og versionering
+
+`manifest.json` identificerer temaet i Guide:
+
+| Felt | Værdi |
+|---|---|
+| `name` | Dyrenes Beskyttelse |
+| `author` | Dyrenes Beskyttelse |
+| `version` | 1.0.0 |
+| `api_version` | 4 |
+
+Versionsnummeret er nulstillet til 1.0.0, så temaet har sin egen serie og ikke arver
+Copenhagens (senest 4.50.4). **Når temaet er koblet på Guide via GitHub, skal `version`
+tælles op ved hver ændring** — Zendesk afviser en opdatering med et versionsnummer, der er
+det samme som eller lavere end det installerede.
+
+Byggede filer (`style.css`, `script.js`, `assets/*-bundle.js`) er committet med vilje:
+Zendesk kører ingen build ved import, så de skal ligge i repoet. Kør `yarn build` og commit
+resultatet sammen med ændringer i `styles/` eller `src/`.
+
 ## Designprincipper
 
 - **Ingen radius, ingen skygger.** Adskillelse sker med streg (`--db-line`) og flade.
