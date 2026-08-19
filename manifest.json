@@ -416,18 +416,21 @@
         {
           "identifier": "emergency_text",
           "type": "text",
+          "description": "Teksten før nummeret i det sorte nødbånd øverst på hver side",
           "label": "Tekst i nødbånd",
           "value": "Dyr i nød? Ring vagtcentralen"
         },
         {
           "identifier": "emergency_number",
           "type": "text",
+          "description": "Vagtcentralens nummer. Bruges også i tel:-links",
           "label": "Nødnummer",
           "value": "1812"
         },
         {
           "identifier": "emergency_cta",
           "type": "text",
+          "description": "Teksten på knappen der ringer til vagtcentralen",
           "label": "Knaptekst til nødnummer",
           "value": "Ring 1812"
         }
@@ -439,43 +442,49 @@
         {
           "identifier": "hero_kicker",
           "type": "text",
+          "description": "Lille overlinje over hero-overskriften på forsiden",
           "label": "Hero: overlinje",
           "value": "Hjælp og svar"
         },
         {
           "identifier": "hero_title",
           "type": "text",
+          "description": "Hovedoverskriften i heroen på forsiden",
           "label": "Hero: overskrift",
           "value": "Hvad kan vi hjælpe dig med?"
         },
         {
           "identifier": "hero_lede",
           "type": "text",
+          "description": "Manchetten under hero-overskriften",
           "label": "Hero: manchet",
           "value": "Find svar om dyr i nød, adoption, medlemskab og vores arbejde."
         },
         {
           "identifier": "hero_photo_credit",
           "type": "text",
+          "description": "Fotokredit nederst til højre i heroen. Tom værdi skjuler den",
           "label": "Hero: fotokredit",
           "value": "Foto: Hrald / Wikimedia Commons (CC BY-SA 3.0)"
         },
         {
           "identifier": "hero_mobile_focus",
           "type": "text",
+          "description": "Vandret fokuspunkt for hero-fotoet under 768px, fx 70%",
           "label": "Hero: billedfokus på mobil",
-          "description": "Vandret fokuspunkt for hero-fotoet på skærme under 768px, fx 70%. Justér når fotoet skiftes ud.",
           "value": "70%"
         },
         {
           "identifier": "band_title",
           "type": "text",
+          "description": "Overskrift i det røde handlingsbånd under kategorierne",
           "label": "Handlingsbånd: overskrift",
           "value": "Fandt du ikke svaret?"
         },
         {
           "identifier": "band_text",
           "type": "text",
+          "description": "Brødtekst i det røde handlingsbånd under kategorierne",
           "label": "Handlingsbånd: tekst",
           "value": "Skriv til os, så vender vi tilbage inden for to hverdage."
         }
@@ -487,66 +496,77 @@
         {
           "identifier": "main_site_url",
           "type": "text",
+          "description": "Adressen på Dyrenes Beskyttelses hovedsite",
           "label": "Hovedsite",
           "value": "https://www.dyrenesbeskyttelse.dk"
         },
         {
           "identifier": "membership_url",
           "type": "text",
+          "description": "Link til Bliv medlem i nødbåndet øverst",
           "label": "Bliv medlem",
           "value": "https://www.dyrenesbeskyttelse.dk/bliv-medlem"
         },
         {
           "identifier": "donate_url",
           "type": "text",
+          "description": "Link til Støt i nødbåndet øverst",
           "label": "Støt",
           "value": "https://www.dyrenesbeskyttelse.dk/stoet"
         },
         {
           "identifier": "footer_note",
           "type": "text",
+          "description": "Kort brødtekst under navnetrækket i sidefoden",
           "label": "Sidefod: brødtekst",
           "value": "Danmarks største dyrevelfærdsorganisation siden 1875."
         },
         {
           "identifier": "footer_contact_title",
           "type": "text",
+          "description": "Overskrift på kontaktkolonnen i sidefoden",
           "label": "Sidefod: kontaktkolonne",
           "value": "Kontakt"
         },
         {
           "identifier": "footer_legal_title",
           "type": "text",
+          "description": "Overskrift på kolonnen med tilgængelighed og persondata",
           "label": "Sidefod: kolonnetitel",
           "value": "Om siden"
         },
         {
           "identifier": "accessibility_label",
           "type": "text",
+          "description": "Linktekst til tilgængelighedserklæringen i sidefoden",
           "label": "Tilgængelighed: label",
           "value": "Tilgængelighedserklæring"
         },
         {
           "identifier": "accessibility_url",
           "type": "text",
+          "description": "Adressen på tilgængelighedserklæringen",
           "label": "Tilgængelighed: link",
           "value": "https://www.was.digst.dk"
         },
         {
           "identifier": "privacy_label",
           "type": "text",
+          "description": "Linktekst til cookie- og persondatapolitikken",
           "label": "Persondata: label",
           "value": "Cookies og persondata"
         },
         {
           "identifier": "privacy_url",
           "type": "text",
+          "description": "Adressen på cookie- og persondatapolitikken",
           "label": "Persondata: link",
           "value": "https://www.dyrenesbeskyttelse.dk/persondata"
         },
         {
           "identifier": "footer_copyright",
           "type": "text",
+          "description": "Copyrightlinjen nederst i sidefoden",
           "label": "Sidefod: copyright",
           "value": "© 2026 Dyrenes Beskyttelse · CVR 11 88 91 12"
         }
@@ -558,12 +578,14 @@
         {
           "identifier": "show_ask_ai",
           "type": "checkbox",
+          "description": "Viser Spørg AI-knappen i headeren",
           "label": "Vis Spørg AI-knap",
           "value": true
         },
         {
           "identifier": "ask_ai_label",
           "type": "text",
+          "description": "Teksten på Spørg AI-knappen i headeren",
           "label": "Spørg AI: knaptekst",
           "value": "Spørg AI"
         }

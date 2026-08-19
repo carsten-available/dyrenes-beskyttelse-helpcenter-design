@@ -36,6 +36,15 @@ Copenhagens (senest 4.50.4). **Når temaet er koblet på Guide via GitHub, skal 
 tælles op ved hver ændring** — Zendesk afviser en opdatering med et versionsnummer, der er
 det samme som eller lavere end det installerede.
 
+### Krav til nye temaindstillinger
+
+Zendesk validerer `manifest.json` mod et skema ved import. Hver variabel **skal** have
+`identifier`, `type`, `label` og `description` — mangler `description`, afvises hele temaet
+med `The property '#/settings/N/variables/M' of type object did not match any of the
+required schemas`. Desuden: `identifier` højst 30 tegn (kun bogstaver, tal og `_`),
+`label` højst 40 tegn, `description` højst 80 tegn, og `value` er påkrævet for alle typer
+undtagen `file`. Gyldige typer er `text`, `list`, `checkbox`, `color`, `file` og `range`.
+
 Byggede filer (`style.css`, `script.js`, `assets/*-bundle.js`) er committet med vilje:
 Zendesk kører ingen build ved import, så de skal ligge i repoet. Kør `yarn build` og commit
 resultatet sammen med ændringer i `styles/` eller `src/`.
